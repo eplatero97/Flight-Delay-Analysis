@@ -12,7 +12,7 @@ The `united_summer2015.csv` dataset contains United Airlines domestic flights de
 
 **# what is the distribution of number of flights per region?**
 
-[image]
+![flight_frequency_per_region.png](https://github.com/eplatero97/Flight-Delay-Analysis/blob/master/imgs/flight_frequency_per_region.png?raw=true)
 
 ```R
 1 Midwest   1806
@@ -61,7 +61,7 @@ Response: delays
 
 However, does our data meet ANOVA's normality assumption to make the results reliable?
 
-[IMAGE]
+![normality_test.PNG](https://github.com/eplatero97/Flight-Delay-Analysis/blob/master/imgs/normality_test.PNG?raw=true)
 
 From the above images, we notice that the qqplot and histogram of delay time from these airports are not normally distributed. There are some airports containing low amount of data points. For example, MSY and IAD airports only have 3 and 2 data points respectively. For this reason, we propose to conduct permutation test to determine whether or not the mean delay time is affected by the specific city a flight is travelling to. The p-value of the permutation test is demonstrated below:
 
@@ -119,16 +119,10 @@ Thus, we reject Ho and now perform pairwise testing to explore which group(s) ar
 [1] "Given that normality was NOT met, we will perform Wilcox's pairwise non-parametric test"
 ```
 
-[IMAGE]
+![pairwise_test.png](https://github.com/eplatero97/Flight-Delay-Analysis/blob/master/imgs/pairwise_test.png?raw=true)
 
-From the above graph, we see **all pairwise comparisons with flights from 0 to 1000 miles are significantly different. Therefore, we can expect average delay time from 0 to 1000 miles to be significantly different against distances from 1000 to 2000 miles or 2000 to 3000 miles.** 
- 
-
-From the above, we have found two main ideas under an alpha level of 0.05 :
-
-1. Average Delay are significantly different between distances 
-2. Discovered pairwise distances with significant average delay.
+From the above graph, we see all pairwise comparisons with flights from 0 to 1000 miles are significantly different. Therefore, we can expect average delay time from 0 to 1000 miles to be significantly different against distances from 1000 to 2000 miles or 2000 to 3000 miles. 
 
 ## Conclusions
 
-From the analysis there a few key things that come to mind and that we must acknowledge. The average delay time for each airport is not the same. Also, the average delay for each city is different. Further, we see that the average delay time for the first 1000 miles is significantly different than traveling for an additional 1000 miles or two thousand miles. Another important thing to remember thing to note is that the best time to travel with lowest amount of delays is Tuesday and Thursday. Finally, we can say that the region with the highest interval of delays would be the Midwest with a minute more on average in delay.  
+From the analysis, we find that the average delay time for each airport is not the same. Also, the average delay for each city is different. Further, we see that the average delay time for the first 1000 miles is significantly different than traveling for an additional 1000 miles or two thousand miles. Another important thing to remember thing to note is that the best time to travel with lowest amount of delays is Tuesday and Thursday. Finally, we can say that the region with the highest interval of delays would be the Midwest with a minute more on average in delay.  
